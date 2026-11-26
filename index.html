@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PROCASEF – Inventaires, NICAD, Délibérations, Approbations</title>
+<script>
+try {
+  var t = localStorage.getItem('procasef-theme');
+  if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+</script>
+<!-- Leaflet : copie locale (lib/leaflet), repli automatique sur le CDN si absente -->
+<link rel="stylesheet" href="lib/leaflet/leaflet.css" onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="hbox hl"><img src="img/logo-procasef.png" alt="PROCASEF – Projet Cadastre et Sécurisation Foncière"></div>
+  <div class="htitle">
+    <h1>Suivi des opérations foncières</h1>
+    <div class="sub">Inventaires · NICAD · Délibérations · Approbations</div>
+    <p id="scope">Communes ciblées par le PROCASEF</p>
+  </div>
+  <div class="hr">
+    <button type="button" id="theme" class="ghost">Thème</button>
+    <div class="hbox"><img src="img/logo-ministere.png" alt="République du Sénégal – Ministère des Finances et du Budget"></div>
+  </div>
+</header>
+<main>
+  <section class="card">
+    <div class="tabs" id="tabs" role="tablist" aria-label="Indicateur affiché"></div>
+    <div class="lyr">
+      <label><input type="checkbox" id="lg"> Limites des grappes</label>
+      <label><input type="checkbox" id="lr" checked> Limites des régions</label>
+      <label><input type="checkbox" id="lc" checked> Limites des communes</label>
+      <label><input type="checkbox" id="lb" checked> Fond de carte (pays)</label>
+      <label><input type="checkbox" id="lt"> Fond OpenStreetMap</label>
+      <label><input type="checkbox" id="ln" checked> Noms des communes (zoom)</label>
+    </div>
+    <div class="mapwrap">
+      <div class="mapbox">
+        <div id="map" role="application" aria-label="Carte des communes PROCASEF"></div>
+        <div class="leg" id="leg" aria-label="Légende"></div>
+        <div class="srch" id="srch">
+          <input id="q" type="search" placeholder="Rechercher une commune, une région…" aria-label="Rechercher une commune" autocomplete="off">
+          <div class="sr" id="sr" role="listbox"></div>
+        </div>
+        <aside id="panel" class="pnl" aria-live="polite" aria-label="Informations de la commune"></aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="lib/leaflet/leaflet.js"></script>
+<script>window.L||document.write('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\/script>')</script>
+<script src="data/communes.js"></script>
+<script src="data/communes_sn.js"></script>
+<script src="data/pays.js"></script>
+<script src="data/grappes.js"></script>
+<script src="data/regions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

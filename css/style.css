@@ -1,0 +1,234 @@
+:root{
+  --bg:#f4efe9;--card:#fff;--tx:#2b2326;--mu:#7a6d70;--pr:#6b2230;--bd:#e6dcd8;
+  --nd:#d9d4d2;--land:#f1f1f3;--bcs:#cfcfd6;--oth:#f7f4ef;--oc:#b8e0f2;
+  --c1:#fbe9c8;--c2:#f6c46b;--c3:#e8893a;--c4:#c4452f;--c5:#6b2230;
+  --accent:#5d9a28;--header:#6b2230;--on:#fff;--shadow:0 8px 24px #2b232614;
+}
+html[data-theme="light"]{
+  --bg:#f4efe9;--card:#fff;--tx:#2b2326;--mu:#7a6d70;--pr:#6b2230;--bd:#e6dcd8;
+  --nd:#d9d4d2;--land:#f1f1f3;--bcs:#cfcfd6;--oth:#f7f4ef;--oc:#b8e0f2;
+  --c1:#fbe9c8;--c2:#f6c46b;--c3:#e8893a;--c4:#c4452f;--c5:#6b2230;
+  --accent:#5d9a28;--header:#6b2230;--on:#fff;--shadow:0 8px 24px #2b232614;
+}
+@media (prefers-color-scheme:dark){
+  :root{color-scheme:dark}
+  :root:not([data-theme="light"]){
+    --bg:#1c1618;--card:#2a2124;--tx:#f1e8e6;--mu:#b3a3a6;--pr:#e08a98;--bd:#41343a;
+    --nd:#4a4144;--land:#3a3135;--bcs:#54494e;--oth:#241d20;--oc:#1d3a4a;
+    --c1:#4a3a2a;--c2:#9a6a2a;--c3:#d0702f;--c4:#e04f3a;--c5:#ff8f9f;
+    --accent:#8dcb4e;--header:#4a1520;--on:#fff;--shadow:0 8px 24px #0006;
+  }
+}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1c1618;--card:#2a2124;--tx:#f1e8e6;--mu:#b3a3a6;--pr:#e08a98;--bd:#41343a;
+  --nd:#4a4144;--land:#3a3135;--bcs:#54494e;--oth:#241d20;--oc:#1d3a4a;
+  --c1:#4a3a2a;--c2:#9a6a2a;--c3:#d0702f;--c4:#e04f3a;--c5:#ff8f9f;
+  --accent:#8dcb4e;--header:#4a1520;--on:#fff;--shadow:0 8px 24px #0006;
+}
+*{box-sizing:border-box}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;
+  padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+header{background:var(--header);color:#fff;padding:14px 20px;border-bottom:4px solid var(--accent);
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px}
+.hbox{background:#fff;border-radius:12px;padding:8px 14px;display:flex;align-items:center;justify-content:center}
+.hbox img{display:block;height:58px;width:auto;max-width:100%}
+.hl img{height:50px}
+.hr{display:flex;align-items:center;gap:10px;justify-self:end}
+.htitle{text-align:center;min-width:0}
+h1{margin:0;font-size:1.6rem;line-height:1.15;font-weight:700}
+.sub{margin-top:4px;font-size:1.15rem;font-weight:600;color:#f2c230}
+header p{margin:6px 0 0;font-size:.8rem;opacity:.92}
+header .ghost{color:#fff;border-color:#ffffff40;padding:6px 10px;font-size:.8rem}
+main{display:block;padding:8px;max-width:none;margin:0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px;min-width:0;box-shadow:var(--shadow)}
+h2{font-size:.95rem;margin:0 0 10px;padding:8px 12px;border-radius:10px;background:var(--header);color:#fff}
+.hint{margin:-4px 0 8px;font-size:.75rem;color:var(--mu)}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.tabs button{flex:1;min-width:104px;border:1px solid var(--bd);background:var(--card);color:var(--tx);
+  border-radius:10px;padding:8px 10px;cursor:pointer;font:inherit;text-align:left}
+.tabs button b{display:block;font-size:1.05rem;color:var(--pr);font-variant-numeric:tabular-nums}
+.tabs button span{font-size:.75rem;color:var(--mu)}
+.tabs button.on{background:var(--pr);border-color:var(--pr)}
+.tabs button.on b,.tabs button.on span{color:#fff}
+html[data-theme="dark"] .tabs button.on b,html[data-theme="dark"] .tabs button.on span{color:#2b2326}
+@media (prefers-color-scheme:dark){
+  html:not([data-theme="light"]) .tabs button.on b,
+  html:not([data-theme="light"]) .tabs button.on span{color:#2b2326}
+}
+
+.lyr{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;margin-bottom:8px}
+.lyr label,.filters label{display:flex;align-items:center;gap:6px;cursor:pointer}
+
+#map{height:calc(100vh - 190px);min-height:560px;border-radius:10px;background:var(--oc);z-index:0}
+.north{display:flex;flex-direction:column;align-items:center;margin-top:12px!important;color:#000;pointer-events:none;
+  font:600 16px/1 Georgia,serif;text-shadow:0 0 3px #fff,0 0 3px #fff}
+html[data-theme="dark"] .north{color:#fff;text-shadow:0 0 3px #000}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .north{color:#fff;text-shadow:0 0 3px #000}}
+.north svg{display:block;margin-top:2px}
+#map.nobase{background:var(--bg)}
+.leaflet-container{font:inherit;background:var(--oc)}
+path.c{cursor:pointer}
+
+.mapwrap{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:12px;align-items:start}
+.leg{display:flex;flex-direction:column;gap:8px;font-size:.75rem;color:var(--mu);
+  border:1px solid var(--bd);border-radius:10px;padding:10px;max-height:calc(100vh - 190px);min-height:560px;overflow:auto}
+.leg .lt{display:block;color:var(--tx);font-weight:600}
+.leg::before{content:"Légende";display:block;background:var(--header);color:#fff;margin:-10px -10px 4px;padding:8px 12px;
+  border-radius:9px 9px 0 0;font-weight:600;font-size:.95rem}
+.leg>span{display:flex;align-items:center}
+.leg .leg @media(max-width:640px){.mapwrap{grid-template-columns:1fr}.leg{max-height:none}}
+.leg i{display:inline-block;width:14px;height:12px;border-radius:2px;margin-right:4px;vertical-align:-2px}
+
+.lbl{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;
+  color:var(--mu);font-size:9px;font-style:normal;letter-spacing:1.5px;text-transform:uppercase;text-shadow:0 0 2px var(--card),0 0 2px var(--card),0 0 2px var(--card)}
+.lbl::before{display:none!important}
+.lbl.gt{color:var(--tx);font-size:10px;font-weight:700;font-style:normal}
+.lbl.pl{color:var(--tx);font-size:10px;font-style:normal;letter-spacing:0;text-transform:none}
+.lbl.cty{color:var(--mu);font-size:11px;letter-spacing:2px;font-style:normal}
+.lbl.gm{font-family:Georgia,serif;font-size:10px;letter-spacing:3px;color:var(--tx)}
+.lbl.cn{color:var(--tx);font-size:10px;font-weight:600;font-style:normal;letter-spacing:0;text-transform:none}
+.lbl span{display:inline-block;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.lbl.pl span{transform:translate(6px,-100%)}
+.dot{width:7px;height:7px;box-sizing:border-box;border-radius:50%;background:var(--card);border:1.5px solid var(--mu)}
+
+.tipx{background:var(--card)!important;color:var(--tx)!important;border:1px solid var(--bd)!important;
+  border-radius:10px!important;padding:5px 9px!important;font-size:.85rem;
+  box-shadow:var(--shadow)!important}
+.tipx b{color:var(--pr)}
+.tipx .ln{display:flex;justify-content:space-between;gap:12px}
+.tipx small{color:var(--mu)}
+.tipx .pipe{margin-top:6px}
+.tipx .pipe .ln{font-size:.75rem}
+.tipx .mini{height:5px;background:var(--bd);border-radius:3px;overflow:hidden;margin:2px 0 5px}
+.tipx .mini i{display:block;height:100%;background:var(--pr)}
+
+.home-btn{width:30px;height:30px;border:2px solid #0003;border-radius:4px;background:#fff;color:#333;
+  font:700 16px/1 system-ui,sans-serif;cursor:pointer}
+.home-btn:hover{background:#f4f4f4}
+
+.step{margin:0 0 8px}
+.step .t{display:flex;justify-content:space-between;gap:8px;font-size:.8rem}
+.step .t b{font-variant-numeric:tabular-nums}
+.bar{height:8px;background:var(--bd);border-radius:4px;overflow:hidden;margin-top:3px}
+.bar i{display:block;height:100%;background:var(--pr)}
+.step small{color:var(--mu);font-size:.72rem}
+
+.filters{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin:12px 0}
+.filters label{flex-direction:column;align-items:stretch;font-size:.72rem;color:var(--mu);gap:3px}
+select,input[type="search"]{width:100%;padding:8px;border:1px solid var(--bd);border-radius:8px;
+  background:var(--card);color:var(--tx);font:inherit}
+.ghost{border:1px solid var(--bd);background:transparent;color:var(--tx);border-radius:8px;
+  padding:8px 10px;cursor:pointer;font:inherit}
+.ghost:hover{border-color:var(--pr);color:var(--pr)}
+
+.row{margin:0 0 8px;font-size:.8rem;padding:4px;border-radius:8px;cursor:pointer}
+.row:hover,.row.on{background:color-mix(in srgb,var(--pr) 10%,transparent)}
+.row .t{display:flex;justify-content:space-between;gap:8px}
+.row .sw{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.sw{width:8px;height:8px;border-radius:50%;display:inline-block;margin:0 4px 0 0;vertical-align:0;border:1px solid #0002}
+
+.rank-head{display:flex;justify-content:space-between;align-items:center;margin:14px 0 10px;padding:8px 12px;border-radius:10px;background:var(--header);color:#fff}
+.rank-head h2{margin:0;padding:0;background:none}
+.rank-head span{font-size:.75rem;color:#fff;opacity:.85}
+.rank-tools{display:grid;grid-template-columns:1fr 92px auto;gap:6px;margin-bottom:8px}
+.rk{max-height:min(42vh,460px);overflow:auto;font-size:.78rem}
+.rk-row{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;
+  padding:6px 4px;border-bottom:1px solid var(--bd);cursor:pointer}
+.rk-row:hover,.rk-row.on{color:var(--pr);background:color-mix(in srgb,var(--pr) 8%,transparent)}
+.rk-i{color:var(--mu);font-variant-numeric:tabular-nums}
+.rk-n{min-width:0}
+.rk-n small{display:block;color:var(--mu);font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk-row b{font-variant-numeric:tabular-nums}
+.empty{color:var(--mu);padding:8px 0}
+
+path.b{stroke:#9a93a4;stroke-width:.9px;stroke-dasharray:6 3}
+path.b-sn{fill:var(--land);stroke:#55505b;stroke-width:1.6px;stroke-dasharray:none}
+#map.osm path.bc{fill:none}
+path.bc{fill:var(--land);stroke:var(--bcs);stroke-width:.5px;stroke-opacity:1}
+path.b-ot{fill:var(--oth)}
+path.b-gm{fill:color-mix(in srgb,#8fbf6a 14%,var(--oth))}
+path.c{stroke:#77747c;stroke-opacity:1;stroke-width:.7px;stroke-linejoin:round}
+path.c:hover,path.c.hot{stroke:#ff7a00;stroke-opacity:1;stroke-width:2.6px}
+path.c.sel,path.c.sel:hover{fill:#ff8c1a!important;fill-opacity:1!important;stroke:#7a3300;stroke-opacity:1;stroke-width:2.4px}
+path.rg{fill:none;stroke:#8a8a8a;stroke-width:1px}
+path.gl{fill:none;stroke:#000;stroke-width:3.5px;stroke-opacity:1;stroke-linejoin:round;stroke-dasharray:none}
+
+@media(max-width:640px){
+  header{grid-template-columns:1fr auto;grid-template-areas:"l r" "c c";gap:10px 12px;padding:12px}
+  .hl{grid-area:l;justify-self:start}
+  .hr{grid-area:r}
+  .htitle{grid-area:c}
+  .hbox{padding:5px 10px}
+  .hbox img{height:36px}
+  .hl img{height:32px}
+  h1{font-size:1.2rem}
+  .sub{font-size:.95rem}
+  #map{height:62vh;min-height:320px}
+  .filters,.rank-tools{grid-template-columns:1fr}
+  .tabs button{min-width:46%}
+}
+
+/* Carte + panneau latéral de la commune */
+.mapbox{position:relative;overflow:hidden;border-radius:10px}
+.pnl{position:absolute;top:0;right:0;bottom:0;width:300px;max-width:85%;z-index:1000;overflow:auto;
+  background:var(--card);color:var(--tx);border-left:4px solid #ff8c1a;padding:14px;font-size:.85rem;
+  box-shadow:-8px 0 24px #0003;transform:translateX(105%);transition:transform .22s ease;visibility:hidden}
+.pnl.open{transform:none;visibility:visible}
+.pnl h3{margin:0 28px 2px 0;font-size:1.15rem;color:var(--pr)}
+.pnl-sub{color:var(--mu);font-size:.8rem;margin-bottom:10px;line-height:1.5}
+.pnl h4{margin:14px 0 6px;padding:6px 10px;border-radius:8px;background:var(--header);color:#fff;font-size:.8rem}
+.pnl h4 small{font-weight:400;opacity:.85}
+.pnl .ln{display:flex;justify-content:space-between;gap:12px;padding:2px 0}
+.pnl .pipe .ln{font-size:.78rem}
+.pnl .mini{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:2px 0 6px}
+.pnl .mini i{display:block;height:100%;background:var(--pr)}
+.pnl-x{position:absolute;top:8px;right:8px;width:28px;height:28px;border:1px solid var(--bd);border-radius:8px;
+  background:transparent;color:var(--tx);font-size:1.2rem;line-height:1;cursor:pointer}
+.pnl-x:hover{border-color:#ff8c1a;color:#ff8c1a}
+@media(max-width:640px){
+  .pnl{top:auto;left:0;width:auto;max-width:none;max-height:55%;border-left:0;border-top:4px solid #ff8c1a;
+    transform:translateY(105%)}
+}
+
+/* Barre de recherche sur la carte */
+.srch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:min(380px,calc(100% - 140px));z-index:1000}
+.srch input{padding:10px 12px;border-radius:10px;box-shadow:var(--shadow);border:1px solid var(--bd);font-size:.9rem}
+.srch input:focus{border-color:#ff8c1a;outline:none}
+.sr{display:none;margin-top:4px;background:var(--card);border:1px solid var(--bd);border-radius:10px;
+  box-shadow:var(--shadow);overflow:hidden}
+.sr.open{display:block}
+.sr-r{padding:8px 12px;cursor:pointer;border-bottom:1px solid var(--bd);font-size:.85rem}
+.sr-r:last-child{border-bottom:0}
+.sr-r b{display:block;color:var(--tx)}
+.sr-r small{color:var(--mu);font-size:.72rem}
+.sr-r:hover,.sr-r.on{background:color-mix(in srgb,#ff8c1a 18%,transparent)}
+.sr-e{padding:10px 12px;color:var(--mu);font-size:.82rem}
+
+/* Pas de cadre de focus autour de la commune cliquée */
+path.c,path.c:focus,path.c:focus-visible,.leaflet-container path:focus,.leaflet-container path:focus-visible,
+.leaflet-interactive:focus,.leaflet-interactive:focus-visible{outline:none!important}
+
+/* Légende : cadre fixe en bas de la carte */
+.mapwrap{display:block}
+.leg{position:absolute;left:10px;bottom:34px;z-index:1000;max-width:calc(100% - 340px);min-height:0;max-height:none;overflow:visible;
+  flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:8px 10px;
+  background:var(--card);color:var(--mu);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--shadow)}
+.leg::before{margin:0;padding:3px 10px;border-radius:8px;font-size:.8rem}
+.leg .lt{display:inline}
+@media(max-width:640px){.leg{max-width:calc(100% - 20px);bottom:30px}}
+
+/* Légende : cadre vertical en bas à droite de la carte (zone vide côté Mali) */
+.leg{left:auto;right:10px;bottom:34px;width:240px;max-width:240px;flex-direction:column;flex-wrap:nowrap;
+  align-items:stretch;gap:8px;padding:10px;transition:right .22s ease}
+.leg::before{margin:-10px -10px 4px;padding:8px 12px;border-radius:9px 9px 0 0;font-size:.95rem}
+.leg .lt{display:block}
+.mapbox:has(.pnl.open) .leg{right:320px}
+@media(max-width:640px){
+  .leg{left:10px;right:10px;width:auto;max-width:none;bottom:30px;flex-direction:row;flex-wrap:wrap;align-items:center}
+  .leg::before{margin:0;padding:3px 10px;border-radius:8px;font-size:.8rem}
+  .leg .lt{display:inline}
+  .mapbox:has(.pnl.open) .leg{right:10px;display:none}
+}
